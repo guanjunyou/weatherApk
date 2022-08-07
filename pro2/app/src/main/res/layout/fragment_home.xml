@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment"
+        android:gravity="center">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="410dp"
+            android:layout_height="544dp" tools:layout_editor_absoluteY="187dp" tools:layout_editor_absoluteX="0dp"
+            tools:ignore="MissingConstraints">
+        <TextView
+                android:id="@+id/text_home"
+                android:layout_width="389dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+        />
+        <TextView
+                android:text="天气预报"
+                android:textSize="40dp"
+                android:gravity="center"
+                android:layout_width="410dp"
+                android:layout_height="131dp" android:id="@+id/textView"
+                tools:ignore="MissingConstraints"
+                android:background="@mipmap/b"
+
+                android:textAlignment="center"
+                android:layout_gravity="center"
+        />
+        <!--        <TextView-->
+<!--                android:text="开发者：关竣佑"-->
+<!--                android:layout_width="317dp"-->
+<!--                android:layout_height="57dp" android:id="@+id/textView2"-->
+<!--                tools:ignore="MissingConstraints"-->
+<!--                android:textSize="20dp"-->
+<!--                android:gravity="center"-->
+<!--                android:background="@mipmap/b"-->
+
+<!--                android:textAlignment="center"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:alpha="0.7"-->
+<!--                android:radius="4dp"-->
+<!--        />-->
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="245dp" android:id="@+id/textView5"/>
+        <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ccc"
+                app:cardCornerRadius="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+        >
+            <TextView
+                    android:text="开发者：关竣佑"
+                    android:layout_width="match_parent"
+                    android:layout_height="57dp" android:id="@+id/textView2"
+                    tools:ignore="MissingConstraints"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:background="@mipmap/b"
+
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:radius="4dp"
+            />
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
