@@ -4,9 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndoidFiles/pro2/app/src/main/res/layout/activity_main.xml" value="0.3375" />
-        <entry key="..\:/AndoidFiles/pro2/app/src/main/res/layout/fragment_dashboard.xml" value="0.3375" />
+        <entry key="..\:/AndoidFiles/pro2/app/src/main/res/layout/fragment_dashboard.xml" value="0.31955922865013775" />
         <entry key="..\:/AndoidFiles/pro2/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/AndoidFiles/pro2/app/src/main/res/layout/fragment_notifications.xml" value="0.33" />
+        <entry key="..\:/AndoidFiles/pro2/app/src/main/res/layout/fragment_notifications.xml" value="0.22" />
         <entry key="..\:/AndoidFiles/pro2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24270833333333333" />
       </map>
     </option>

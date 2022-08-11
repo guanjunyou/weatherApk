@@ -1,6 +1,9 @@
 package com.example.pro2.ui.dashboard;
 
+import android.content.Context;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +19,90 @@ import androidx.navigation.Navigation;
 import com.example.pro2.MainActivity;
 import com.example.pro2.R;
 import com.example.pro2.databinding.FragmentDashboardBinding;
+import android.annotation.SuppressLint;
+
+import android.content.Context;
+
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import androidx.annotation.NonNull;
+
+import com.example.pro2.MyApplication;
+
+
+import static androidx.core.content.ContextCompat.getSystemService;
 
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     public FragmentDashboardBinding binding;
-    public String city;
+    public  String city = "尚未获取";
+    private String lat = ""; //纬度
+    private String lon = "";  //经度
+    private Double latitue = 0.0;
+    private Double longtitue = 0.0;
+    public static boolean flag = false; // 是否获取到了经纬度
+    public static String localCity;
 
+    public class MyLocationListener implements LocationListener
+    {
+        @Override
+        public void onLocationChanged(@NonNull Location location) {
+
+            double late = location.getLatitude();
+            double lone = location.getLongitude();
+
+            if(late != 0.0 && lone!=0.0 )
+            {
+                latitue = late;
+                longtitue = lone;
+                //System.out.println(latitue + " " + longtitue);
+                flag = true;
+                lat = String.valueOf(latitue);
+                lon = String.valueOf(longtitue);
+                System.out.println("经纬度"+lat+" "+lon);
+
+                getLocationCity local = new getLocationCity();
+                try {
+                    String[] localCity = local.getCity(lon,lat);
+                    System.out.println("城市："+localCity[0]+"代码："+localCity[1]);
+                    binding.button6.setText("我所在的城市: "+localCity[0]);
+                    city = localCity[0];
+                    DashboardFragment.localCity = city;
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    }
+
+    @SuppressLint({"MissingPermission", "SetTextI18n"})
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
 
@@ -38,6 +116,33 @@ public class DashboardFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+
+        if(!DashboardFragment.flag)
+        {
+            Context context = MyApplication.getContext();
+
+            String serviceName = Context.LOCATION_SERVICE;
+            LocationManager myLocationManager = (LocationManager)context.getSystemService(serviceName);
+
+
+            if (myLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER ))
+            {
+                //  netLocation = myLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                myLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0L,  0, (LocationListener) new MyLocationListener());
+            }
+            else
+                System.out.println("GPS 关闭");
+            // }
+        }
+        else
+        {
+            binding.button6.setText("我所在的城市: "+DashboardFragment.localCity);
+        }
+
+
+
+
 
         final Button btn3 = (Button) root.findViewById(R.id.button3);
         final Button btn4 = (Button) root.findViewById(R.id.button4);
@@ -84,12 +189,14 @@ public class DashboardFragment extends Fragment {
                    binding.textView8.setText("当前城市：佛山");
                     break;
                 case R.id.button6:
-                    city = "上海";
-                    binding.textView8.setText("当前城市：上海");
+                    city = DashboardFragment.localCity;
+                    binding.textView8.setText("当前城市："+city);
                     break;
                 default:
                     break;
             }
+            if(city.equals("尚未获取"))
+                city = "北京";
 
             NavController controller = Navigation.findNavController(v);
             Bundle bundle = new Bundle();

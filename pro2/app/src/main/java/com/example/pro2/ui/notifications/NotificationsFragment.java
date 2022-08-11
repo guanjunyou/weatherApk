@@ -1,7 +1,7 @@
 package com.example.pro2.ui.notifications;
 
 import android.graphics.Color;
-import android.media.tv.TimelineRequest;
+//import android.media.tv.TimelineRequest;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
