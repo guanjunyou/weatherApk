@@ -56,6 +56,7 @@ public class getLocationCity {
         String[] ans = new String[2];
         ans[0] = city;
         ans[1] = adcode;
+        //System.out.println(ans[0]+ans[1]);
         return ans;
     }
 }

@@ -32,6 +32,8 @@ public class getRequest {
     }
 
     //传入 预报日期 第0-3天 ， 以及城市的高德天气代码
+
+
     public String[] getJSON(int day,String cityCode) throws Exception
     {
         //System.out.println(getHTML("https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=7e5182d424aed687b5157f62eae915f2"));

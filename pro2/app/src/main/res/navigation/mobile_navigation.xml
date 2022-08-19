@@ -7,14 +7,14 @@
 
     <fragment
             android:id="@+id/navigation_home"
-            android:name="com.example.pro2.ui.home.HomeFragment"
+            android:name="com.example.pro2.ui.home.Home"
             android:label="@string/title_home"
             tools:layout="@layout/fragment_home"/>
 
     <fragment
             android:id="@+id/navigation_dashboard"
-            android:name="com.example.pro2.ui.dashboard.DashboardFragment"
-            android:label="@string/title_dashboard"
+            android:name="com.example.pro2.ui.dashboard.Menu"
+            android:label="@string/title_menu"
             tools:layout="@layout/fragment_dashboard">
         <action android:id="@+id/action_navigation_dashboard_to_navigation_notifications"
                 app:destination="@id/navigation_notifications">
