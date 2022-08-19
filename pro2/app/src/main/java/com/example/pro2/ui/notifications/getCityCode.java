@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
 public class getCityCode {
     public  StringBuilder getReq (String urlToRead) throws IOException {
         StringBuilder result = new StringBuilder();
@@ -26,6 +27,12 @@ public class getCityCode {
         return result;
     }
 
+    /**
+     * 通过城市名称获取城市地理编码
+     * @param CityName
+     * @return
+     * @throws Exception
+     */
     public String getCode(String CityName) throws Exception
     {
         //System.out.println(getHTML("https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=7e5182d424aed687b5157f62eae915f2"));

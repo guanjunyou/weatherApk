@@ -9,7 +9,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
 public class getLocationCity {
+    /**
+     * 发送GET请求
+     * @param urlToRead
+     * @return
+     * @throws IOException
+     */
     public  StringBuilder getReq (String urlToRead) throws IOException {
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
@@ -28,6 +35,14 @@ public class getLocationCity {
     }
 
     //type : name 城市名称  code  城市代码
+
+    /**
+     * 通过经纬度获取城市名称
+     * @param lon
+     * @param lat
+     * @return
+     * @throws Exception
+     */
     public String[] getCity(String lon,String lat) throws Exception
     {
         //System.out.println(getHTML("https://restapi.amap.com/v3/weather/weatherInfo?city=110101&key=7e5182d424aed687b5157f62eae915f2"));

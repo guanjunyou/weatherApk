@@ -33,6 +33,13 @@ public class getRequest {
         return result;
     }
 
+    /**
+     * 通过城市名称及day获取天气信息
+     * @param day
+     * @param cityCode
+     * @return
+     * @throws Exception
+     */
     //传入 预报日期 第0-3天 ， 以及城市的高德天气代码
     public String[] getJSON(int day,String cityCode) throws Exception
     {

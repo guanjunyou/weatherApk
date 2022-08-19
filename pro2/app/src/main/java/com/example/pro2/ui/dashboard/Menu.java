@@ -199,7 +199,7 @@ public class Menu extends Fragment {
             }
             System.out.println("看这里");
             System.out.println(Menu.flag);
-            if(!Menu.flag)
+            if(!Menu.flag && "尚未获取".equals(city))
             {
                 city = "北京";
             }
